@@ -1,0 +1,120 @@
+	.file	"daxpy.c"
+	.text
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC0:
+	.string	"\nFalta el numero de elementos del primera_matriz"
+.LC1:
+	.string	"\nDimension: %d"
+.LC2:
+	.string	"\ny[0]: %f"
+.LC3:
+	.string	"\ny[%d]: %f  "
+.LC4:
+	.string	"\nTiempo: %11.9f segundos\n\n"
+	.section	.text.startup,"ax",@progbits
+	.globl	main
+	.type	main, @function
+main:
+.LFB23:
+	.cfi_startproc
+	pushq	%r12
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+	pushq	%rbp
+	.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24
+	pushq	%rbx
+	.cfi_def_cfa_offset 32
+	.cfi_offset 3, -32
+	subq	$16, %rsp
+	.cfi_def_cfa_offset 48
+	cmpl	$3, %edi
+	je	.L2
+	leaq	.LC0(%rip), %rdi
+	call	puts@PLT
+	orl	$-1, %edi
+	call	exit@PLT
+.L2:
+	movq	16(%rsi), %rdi
+	movq	%rsi, %rbx
+	call	atoi@PLT
+	cvtsi2sd	%eax, %xmm2
+	movq	8(%rbx), %rdi
+	movsd	%xmm2, (%rsp)
+	call	atoi@PLT
+	movl	%eax, %ebp
+	movq	%rbp, %rbx
+	salq	$3, %rbp
+	movq	%rbp, %rdi
+	call	malloc@PLT
+	movq	%rbp, %rdi
+	movq	%rax, %r12
+	call	malloc@PLT
+	movq	%rax, %rbp
+	xorl	%eax, %eax
+.L3:
+	cmpl	%eax, %ebx
+	jbe	.L9
+	leal	0(,%rax,4), %edx
+	cvtsi2sd	%edx, %xmm0
+	leal	3(%rax), %edx
+	movsd	%xmm0, (%r12,%rax,8)
+	cvtsi2sd	%edx, %xmm0
+	movsd	%xmm0, 0(%rbp,%rax,8)
+	incq	%rax
+	jmp	.L3
+.L9:
+	call	omp_get_wtime@PLT
+	movsd	%xmm0, 8(%rsp)
+	xorl	%eax, %eax
+.L5:
+	cmpl	%eax, %ebx
+	jbe	.L10
+	movsd	(%rsp), %xmm0
+	mulsd	(%r12,%rax,8), %xmm0
+	addsd	0(%rbp,%rax,8), %xmm0
+	movsd	%xmm0, 0(%rbp,%rax,8)
+	incq	%rax
+	jmp	.L5
+.L10:
+	call	omp_get_wtime@PLT
+	leaq	.LC1(%rip), %rsi
+	movl	%ebx, %edx
+	movl	$1, %edi
+	xorl	%eax, %eax
+	movsd	%xmm0, (%rsp)
+	call	__printf_chk@PLT
+	movsd	0(%rbp), %xmm0
+	leaq	.LC2(%rip), %rsi
+	movl	$1, %edi
+	movb	$1, %al
+	call	__printf_chk@PLT
+	leal	-1(%rbx), %eax
+	leaq	.LC3(%rip), %rsi
+	movl	$1, %edi
+	movsd	0(%rbp,%rax,8), %xmm0
+	movq	%rax, %rdx
+	movb	$1, %al
+	call	__printf_chk@PLT
+	movsd	(%rsp), %xmm1
+	leaq	.LC4(%rip), %rsi
+	movl	$1, %edi
+	movb	$1, %al
+	subsd	8(%rsp), %xmm1
+	movapd	%xmm1, %xmm0
+	call	__printf_chk@PLT
+	addq	$16, %rsp
+	.cfi_def_cfa_offset 32
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 24
+	popq	%rbp
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
+	ret
+	.cfi_endproc
+.LFE23:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0"
+	.section	.note.GNU-stack,"",@progbits

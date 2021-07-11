@@ -1,0 +1,326 @@
+	.file	"pmm-secuencial.c"
+	.text
+	.section	.rodata
+	.align 8
+.LC0:
+	.string	"\nFalta el numero de elementos del primera_matriz"
+	.align 8
+.LC1:
+	.string	"La reserva de espacio para las matrices ha dado fallo"
+	.align 8
+.LC2:
+	.string	"La reserva de espacio ha dado fallo"
+	.align 8
+.LC3:
+	.string	"\nDimension de las matrices: %d    Tiempo: %11.9f segundos\n\n"
+	.align 8
+.LC4:
+	.string	"\nPrimer elemento (matriz_resultado[0][0]) = %d,    Ultimo elemento (matriz_resultado[%d][%d]) = %d\n\n"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB5:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	pushq	%rbx
+	subq	$120, %rsp
+	.cfi_offset 3, -24
+	movl	%edi, -100(%rbp)
+	movq	%rsi, -112(%rbp)
+	cmpl	$2, -100(%rbp)
+	je	.L2
+	leaq	.LC0(%rip), %rdi
+	call	puts@PLT
+	movl	$-1, %edi
+	call	exit@PLT
+.L2:
+	movq	-112(%rbp), %rax
+	addq	$8, %rax
+	movq	(%rax), %rax
+	movq	%rax, %rdi
+	call	atoi@PLT
+	movl	%eax, -68(%rbp)
+	movl	-68(%rbp), %eax
+	salq	$3, %rax
+	movq	%rax, %rdi
+	call	malloc@PLT
+	movq	%rax, -64(%rbp)
+	movl	-68(%rbp), %eax
+	salq	$3, %rax
+	movq	%rax, %rdi
+	call	malloc@PLT
+	movq	%rax, -56(%rbp)
+	movl	-68(%rbp), %eax
+	salq	$3, %rax
+	movq	%rax, %rdi
+	call	malloc@PLT
+	movq	%rax, -48(%rbp)
+	movl	$0, -96(%rbp)
+	jmp	.L3
+.L4:
+	movl	-68(%rbp), %eax
+	salq	$2, %rax
+	movl	-96(%rbp), %edx
+	movslq	%edx, %rdx
+	leaq	0(,%rdx,8), %rcx
+	movq	-48(%rbp), %rdx
+	leaq	(%rcx,%rdx), %rbx
+	movq	%rax, %rdi
+	call	malloc@PLT
+	movq	%rax, (%rbx)
+	movl	-68(%rbp), %eax
+	salq	$2, %rax
+	movl	-96(%rbp), %edx
+	movslq	%edx, %rdx
+	leaq	0(,%rdx,8), %rcx
+	movq	-64(%rbp), %rdx
+	leaq	(%rcx,%rdx), %rbx
+	movq	%rax, %rdi
+	call	malloc@PLT
+	movq	%rax, (%rbx)
+	movl	-68(%rbp), %eax
+	salq	$2, %rax
+	movl	-96(%rbp), %edx
+	movslq	%edx, %rdx
+	leaq	0(,%rdx,8), %rcx
+	movq	-56(%rbp), %rdx
+	leaq	(%rcx,%rdx), %rbx
+	movq	%rax, %rdi
+	call	malloc@PLT
+	movq	%rax, (%rbx)
+	addl	$1, -96(%rbp)
+.L3:
+	movl	-96(%rbp), %eax
+	cmpl	%eax, -68(%rbp)
+	ja	.L4
+	cmpq	$0, -64(%rbp)
+	je	.L5
+	cmpq	$0, -56(%rbp)
+	je	.L5
+	cmpq	$0, -48(%rbp)
+	jne	.L6
+.L5:
+	leaq	.LC1(%rip), %rdi
+	call	puts@PLT
+	movl	$-2, %edi
+	call	exit@PLT
+.L6:
+	movl	$0, -92(%rbp)
+	jmp	.L7
+.L10:
+	movl	-92(%rbp), %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	movq	-64(%rbp), %rax
+	addq	%rdx, %rax
+	movq	(%rax), %rax
+	testq	%rax, %rax
+	je	.L8
+	movl	-92(%rbp), %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	movq	-56(%rbp), %rax
+	addq	%rdx, %rax
+	movq	(%rax), %rax
+	testq	%rax, %rax
+	je	.L8
+	movl	-92(%rbp), %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	movq	-48(%rbp), %rax
+	addq	%rdx, %rax
+	movq	(%rax), %rax
+	testq	%rax, %rax
+	jne	.L9
+.L8:
+	leaq	.LC2(%rip), %rdi
+	call	puts@PLT
+	movl	$-2, %edi
+	call	exit@PLT
+.L9:
+	addl	$1, -92(%rbp)
+.L7:
+	movl	-92(%rbp), %eax
+	cmpl	%eax, -68(%rbp)
+	ja	.L10
+	movl	$0, -88(%rbp)
+	jmp	.L11
+.L14:
+	movl	$0, -84(%rbp)
+	jmp	.L12
+.L13:
+	movl	-88(%rbp), %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	movq	-48(%rbp), %rax
+	addq	%rdx, %rax
+	movq	(%rax), %rax
+	movl	-84(%rbp), %edx
+	movslq	%edx, %rdx
+	salq	$2, %rdx
+	addq	%rdx, %rax
+	movl	$0, (%rax)
+	movl	-88(%rbp), %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	movq	-64(%rbp), %rax
+	addq	%rdx, %rax
+	movq	(%rax), %rax
+	movl	-84(%rbp), %edx
+	movslq	%edx, %rdx
+	salq	$2, %rdx
+	addq	%rdx, %rax
+	movl	-84(%rbp), %edx
+	addl	%edx, %edx
+	movl	%edx, (%rax)
+	movl	-88(%rbp), %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	movq	-56(%rbp), %rax
+	addq	%rdx, %rax
+	movq	(%rax), %rax
+	movl	-84(%rbp), %edx
+	movslq	%edx, %rdx
+	salq	$2, %rdx
+	addq	%rdx, %rax
+	movl	-84(%rbp), %edx
+	addl	$2, %edx
+	movl	%edx, (%rax)
+	addl	$1, -84(%rbp)
+.L12:
+	movl	-84(%rbp), %eax
+	cmpl	%eax, -68(%rbp)
+	ja	.L13
+	addl	$1, -88(%rbp)
+.L11:
+	movl	-88(%rbp), %eax
+	cmpl	%eax, -68(%rbp)
+	ja	.L14
+	call	omp_get_wtime@PLT
+	movq	%xmm0, %rax
+	movq	%rax, -40(%rbp)
+	movl	$0, -80(%rbp)
+	jmp	.L15
+.L20:
+	movl	$0, -76(%rbp)
+	jmp	.L16
+.L19:
+	movl	$0, -72(%rbp)
+	jmp	.L17
+.L18:
+	movl	-80(%rbp), %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	movq	-48(%rbp), %rax
+	addq	%rdx, %rax
+	movq	(%rax), %rax
+	movl	-76(%rbp), %edx
+	movslq	%edx, %rdx
+	salq	$2, %rdx
+	addq	%rdx, %rax
+	movl	(%rax), %ecx
+	movl	-80(%rbp), %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	movq	-64(%rbp), %rax
+	addq	%rdx, %rax
+	movq	(%rax), %rax
+	movl	-72(%rbp), %edx
+	movslq	%edx, %rdx
+	salq	$2, %rdx
+	addq	%rdx, %rax
+	movl	(%rax), %edx
+	movl	-72(%rbp), %eax
+	cltq
+	leaq	0(,%rax,8), %rsi
+	movq	-56(%rbp), %rax
+	addq	%rsi, %rax
+	movq	(%rax), %rax
+	movl	-76(%rbp), %esi
+	movslq	%esi, %rsi
+	salq	$2, %rsi
+	addq	%rsi, %rax
+	movl	(%rax), %eax
+	imull	%eax, %edx
+	movl	-80(%rbp), %eax
+	cltq
+	leaq	0(,%rax,8), %rsi
+	movq	-48(%rbp), %rax
+	addq	%rsi, %rax
+	movq	(%rax), %rax
+	movl	-76(%rbp), %esi
+	movslq	%esi, %rsi
+	salq	$2, %rsi
+	addq	%rsi, %rax
+	addl	%ecx, %edx
+	movl	%edx, (%rax)
+	addl	$1, -72(%rbp)
+.L17:
+	movl	-72(%rbp), %eax
+	cmpl	%eax, -68(%rbp)
+	ja	.L18
+	addl	$1, -76(%rbp)
+.L16:
+	movl	-76(%rbp), %eax
+	cmpl	%eax, -68(%rbp)
+	ja	.L19
+	addl	$1, -80(%rbp)
+.L15:
+	movl	-80(%rbp), %eax
+	cmpl	%eax, -68(%rbp)
+	ja	.L20
+	call	omp_get_wtime@PLT
+	movq	%xmm0, %rax
+	movq	%rax, -32(%rbp)
+	movsd	-32(%rbp), %xmm0
+	subsd	-40(%rbp), %xmm0
+	movsd	%xmm0, -24(%rbp)
+	movq	-24(%rbp), %rdx
+	movl	-68(%rbp), %eax
+	movq	%rdx, -120(%rbp)
+	movsd	-120(%rbp), %xmm0
+	movl	%eax, %esi
+	leaq	.LC3(%rip), %rdi
+	movl	$1, %eax
+	call	printf@PLT
+	movl	-68(%rbp), %eax
+	subl	$1, %eax
+	movl	%eax, %eax
+	leaq	0(,%rax,8), %rdx
+	movq	-48(%rbp), %rax
+	addq	%rdx, %rax
+	movq	(%rax), %rax
+	movl	-68(%rbp), %edx
+	subl	$1, %edx
+	movl	%edx, %edx
+	salq	$2, %rdx
+	addq	%rdx, %rax
+	movl	(%rax), %esi
+	movl	-68(%rbp), %eax
+	leal	-1(%rax), %ecx
+	movl	-68(%rbp), %eax
+	leal	-1(%rax), %edx
+	movq	-48(%rbp), %rax
+	movq	(%rax), %rax
+	movl	(%rax), %eax
+	movl	%esi, %r8d
+	movl	%eax, %esi
+	leaq	.LC4(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movl	$0, %eax
+	addq	$120, %rsp
+	popq	%rbx
+	popq	%rbp
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE5:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0"
+	.section	.note.GNU-stack,"",@progbits

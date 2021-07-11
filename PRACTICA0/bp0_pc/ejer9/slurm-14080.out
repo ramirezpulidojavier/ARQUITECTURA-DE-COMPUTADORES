@@ -1,0 +1,14 @@
+Tama駉 Vectores:65536 (4 B)
+Tiempo:0.000465898	 / Tama駉 Vectores:65536	/ V1[0]+V2[0]=V3[0](6553.600000+6553.600000=13107.200000) / / V1[65535]+V2[65535]=V3[65535](13107.100000+0.100000=13107.200000) /
+Tama駉 Vectores:131072 (4 B)
+Tiempo:0.000940067	 / Tama駉 Vectores:131072	/ V1[0]+V2[0]=V3[0](13107.200000+13107.200000=26214.400000) / / V1[131071]+V2[131071]=V3[131071](26214.300000+0.100000=26214.400000) /
+Tama駉 Vectores:262144 (4 B)
+Tiempo:0.001909479	 / Tama駉 Vectores:262144	/ V1[0]+V2[0]=V3[0](26214.400000+26214.400000=52428.800000) / / V1[262143]+V2[262143]=V3[262143](52428.700000+0.100000=52428.800000) /
+/var/spool/slurmd/job14080/slurm_script: l铆nea 6: 27022 Violaci贸n de segmento  (`core' generado) ./SumaVectoreslocal $P
+/var/spool/slurmd/job14080/slurm_script: l铆nea 6: 27024 Violaci贸n de segmento  (`core' generado) ./SumaVectoreslocal $P
+/var/spool/slurmd/job14080/slurm_script: l铆nea 6: 27028 Violaci贸n de segmento  (`core' generado) ./SumaVectoreslocal $P
+/var/spool/slurmd/job14080/slurm_script: l铆nea 6: 27031 Violaci贸n de segmento  (`core' generado) ./SumaVectoreslocal $P
+/var/spool/slurmd/job14080/slurm_script: l铆nea 6: 27033 Violaci贸n de segmento  (`core' generado) ./SumaVectoreslocal $P
+/var/spool/slurmd/job14080/slurm_script: l铆nea 6: 27035 Violaci贸n de segmento  (`core' generado) ./SumaVectoreslocal $P
+/var/spool/slurmd/job14080/slurm_script: l铆nea 6: 27037 Violaci贸n de segmento  (`core' generado) ./SumaVectoreslocal $P
+/var/spool/slurmd/job14080/slurm_script: l铆nea 6: 27039 Violaci贸n de segmento  (`core' generado) ./SumaVectoreslocal $P

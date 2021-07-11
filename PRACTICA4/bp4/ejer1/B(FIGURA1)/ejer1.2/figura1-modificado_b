@@ -1,0 +1,304 @@
+	.file	"figura1-modificado_b.c"
+	.text
+	.comm	s,40000,32
+	.section	.rodata
+.LC0:
+	.string	"\nR[0]: %i"
+.LC1:
+	.string	"\nR[39999]: %i  "
+.LC2:
+	.string	"\nTiempo: %11.9f segundos\n\n"
+	.text
+	.globl	main
+	.type	main, @function
+main:
+.LFB5:
+	.cfi_startproc
+	pushq	%rbp
+	.cfi_def_cfa_offset 16
+	.cfi_offset 6, -16
+	movq	%rsp, %rbp
+	.cfi_def_cfa_register 6
+	subq	$160096, %rsp
+	movl	%edi, -160068(%rbp)
+	movq	%rsi, -160080(%rbp)
+	movq	%fs:40, %rax
+	movq	%rax, -8(%rbp)
+	xorl	%eax, %eax
+	call	omp_get_wtime@PLT
+	movq	%xmm0, %rax
+	movq	%rax, -160040(%rbp)
+	movl	$0, -160056(%rbp)
+	jmp	.L2
+.L7:
+	movl	$0, -160048(%rbp)
+	movl	$0, -160044(%rbp)
+	movl	$0, -160052(%rbp)
+	jmp	.L3
+.L4:
+	movl	-160052(%rbp), %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	s(%rip), %rax
+	movl	(%rdx,%rax), %eax
+	leal	(%rax,%rax), %edx
+	movl	-160056(%rbp), %eax
+	addl	%edx, %eax
+	addl	%eax, -160048(%rbp)
+	movl	-160052(%rbp), %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	4+s(%rip), %rax
+	movl	(%rdx,%rax), %edx
+	movl	%edx, %eax
+	addl	%eax, %eax
+	addl	%edx, %eax
+	subl	-160056(%rbp), %eax
+	addl	%eax, -160044(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$1, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	s(%rip), %rax
+	movl	(%rdx,%rax), %eax
+	leal	(%rax,%rax), %edx
+	movl	-160056(%rbp), %eax
+	addl	%edx, %eax
+	addl	%eax, -160048(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$1, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	4+s(%rip), %rax
+	movl	(%rdx,%rax), %edx
+	movl	%edx, %eax
+	addl	%eax, %eax
+	addl	%edx, %eax
+	subl	-160056(%rbp), %eax
+	addl	%eax, -160044(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$2, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	s(%rip), %rax
+	movl	(%rdx,%rax), %eax
+	leal	(%rax,%rax), %edx
+	movl	-160056(%rbp), %eax
+	addl	%edx, %eax
+	addl	%eax, -160048(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$2, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	4+s(%rip), %rax
+	movl	(%rdx,%rax), %edx
+	movl	%edx, %eax
+	addl	%eax, %eax
+	addl	%edx, %eax
+	subl	-160056(%rbp), %eax
+	addl	%eax, -160044(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$3, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	s(%rip), %rax
+	movl	(%rdx,%rax), %eax
+	leal	(%rax,%rax), %edx
+	movl	-160056(%rbp), %eax
+	addl	%edx, %eax
+	addl	%eax, -160048(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$3, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	4+s(%rip), %rax
+	movl	(%rdx,%rax), %edx
+	movl	%edx, %eax
+	addl	%eax, %eax
+	addl	%edx, %eax
+	subl	-160056(%rbp), %eax
+	addl	%eax, -160044(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$4, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	s(%rip), %rax
+	movl	(%rdx,%rax), %eax
+	leal	(%rax,%rax), %edx
+	movl	-160056(%rbp), %eax
+	addl	%edx, %eax
+	addl	%eax, -160048(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$4, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	4+s(%rip), %rax
+	movl	(%rdx,%rax), %edx
+	movl	%edx, %eax
+	addl	%eax, %eax
+	addl	%edx, %eax
+	subl	-160056(%rbp), %eax
+	addl	%eax, -160044(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$5, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	s(%rip), %rax
+	movl	(%rdx,%rax), %eax
+	leal	(%rax,%rax), %edx
+	movl	-160056(%rbp), %eax
+	addl	%edx, %eax
+	addl	%eax, -160048(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$5, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	4+s(%rip), %rax
+	movl	(%rdx,%rax), %edx
+	movl	%edx, %eax
+	addl	%eax, %eax
+	addl	%edx, %eax
+	subl	-160056(%rbp), %eax
+	addl	%eax, -160044(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$6, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	s(%rip), %rax
+	movl	(%rdx,%rax), %eax
+	leal	(%rax,%rax), %edx
+	movl	-160056(%rbp), %eax
+	addl	%edx, %eax
+	addl	%eax, -160048(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$6, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	4+s(%rip), %rax
+	movl	(%rdx,%rax), %edx
+	movl	%edx, %eax
+	addl	%eax, %eax
+	addl	%edx, %eax
+	subl	-160056(%rbp), %eax
+	addl	%eax, -160044(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$7, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	s(%rip), %rax
+	movl	(%rdx,%rax), %eax
+	leal	(%rax,%rax), %edx
+	movl	-160056(%rbp), %eax
+	addl	%edx, %eax
+	addl	%eax, -160048(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$7, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	4+s(%rip), %rax
+	movl	(%rdx,%rax), %edx
+	movl	%edx, %eax
+	addl	%eax, %eax
+	addl	%edx, %eax
+	subl	-160056(%rbp), %eax
+	addl	%eax, -160044(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$8, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	s(%rip), %rax
+	movl	(%rdx,%rax), %eax
+	leal	(%rax,%rax), %edx
+	movl	-160056(%rbp), %eax
+	addl	%edx, %eax
+	addl	%eax, -160048(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$8, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	4+s(%rip), %rax
+	movl	(%rdx,%rax), %edx
+	movl	%edx, %eax
+	addl	%eax, %eax
+	addl	%edx, %eax
+	subl	-160056(%rbp), %eax
+	addl	%eax, -160044(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$9, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	s(%rip), %rax
+	movl	(%rdx,%rax), %eax
+	leal	(%rax,%rax), %edx
+	movl	-160056(%rbp), %eax
+	addl	%edx, %eax
+	addl	%eax, -160048(%rbp)
+	movl	-160052(%rbp), %eax
+	addl	$9, %eax
+	cltq
+	leaq	0(,%rax,8), %rdx
+	leaq	4+s(%rip), %rax
+	movl	(%rdx,%rax), %edx
+	movl	%edx, %eax
+	addl	%eax, %eax
+	addl	%edx, %eax
+	subl	-160056(%rbp), %eax
+	addl	%eax, -160044(%rbp)
+	addl	$10, -160052(%rbp)
+.L3:
+	cmpl	$4999, -160052(%rbp)
+	jle	.L4
+	movl	-160048(%rbp), %eax
+	cmpl	-160044(%rbp), %eax
+	jl	.L5
+	movl	-160056(%rbp), %eax
+	cltq
+	movl	-160044(%rbp), %edx
+	movl	%edx, -160016(%rbp,%rax,4)
+	jmp	.L6
+.L5:
+	movl	-160056(%rbp), %eax
+	cltq
+	movl	-160048(%rbp), %edx
+	movl	%edx, -160016(%rbp,%rax,4)
+.L6:
+	addl	$1, -160056(%rbp)
+.L2:
+	cmpl	$39999, -160056(%rbp)
+	jle	.L7
+	call	omp_get_wtime@PLT
+	movq	%xmm0, %rax
+	movq	%rax, -160032(%rbp)
+	movsd	-160032(%rbp), %xmm0
+	subsd	-160040(%rbp), %xmm0
+	movsd	%xmm0, -160024(%rbp)
+	movl	-160016(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC0(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movl	-20(%rbp), %eax
+	movl	%eax, %esi
+	leaq	.LC1(%rip), %rdi
+	movl	$0, %eax
+	call	printf@PLT
+	movq	-160024(%rbp), %rax
+	movq	%rax, -160088(%rbp)
+	movsd	-160088(%rbp), %xmm0
+	leaq	.LC2(%rip), %rdi
+	movl	$1, %eax
+	call	printf@PLT
+	movl	$0, %eax
+	movq	-8(%rbp), %rcx
+	xorq	%fs:40, %rcx
+	je	.L9
+	call	__stack_chk_fail@PLT
+.L9:
+	leave
+	.cfi_def_cfa 7, 8
+	ret
+	.cfi_endproc
+.LFE5:
+	.size	main, .-main
+	.ident	"GCC: (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0"
+	.section	.note.GNU-stack,"",@progbits

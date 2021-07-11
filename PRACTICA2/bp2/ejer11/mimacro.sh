@@ -1,0 +1,32 @@
+#!/bin/bash
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-a_1_n500_m50.txt" 5 >> medida_MDG-a_1_n500_m50.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-a_2_n500_m50.txt" 5 >> medida_MDG-a_2_n500_m50.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-a_3_n500_m50.txt" 5 >> medida_MDG-a_3_n500_m50.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-a_4_n500_m50.txt" 5 >> medida_MDG-a_4_n500_m50.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-a_5_n500_m50.txt" 5 >> medida_MDG-a_5_n500_m50.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-a_6_n500_m50.txt" 5 >> medida_MDG-a_6_n500_m50.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-a_7_n500_m50.txt" 5 >> medida_MDG-a_7_n500_m50.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-a_8_n500_m50.txt" 5 >> medida_MDG-a_8_n500_m50.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-a_9_n500_m50.txt" 5 >> medida_MDG-a_9_n500_m50.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-a_10_n500_m50.txt" 5 >> medida_MDG-a_10_n500_m50.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-b_21_n2000_m200.txt" 5 >> medida_MDG-b_21_n2000_m200.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-b_22_n2000_m200.txt" 5 >> medida_MDG-b_22_n2000_m200.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-b_23_n2000_m200.txt" 5 >> medida_MDG-b_23_n2000_m200.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-b_24_n2000_m200.txt" 5 >> medida_MDG-b_24_n2000_m200.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-b_25_n2000_m200.txt" 5 >> medida_MDG-b_25_n2000_m200.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-b_26_n2000_m200.txt" 5 >> medida_MDG-b_26_n2000_m200.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-b_27_n2000_m200.txt" 5 >> medida_MDG-b_27_n2000_m200.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-b_28_n2000_m200.txt" 5 >> medida_MDG-b_28_n2000_m200.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-b_29_n2000_m200.txt" 5 >> medida_MDG-b_29_n2000_m200.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-b_30_n2000_m200.txt" 5 >> medida_MDG-b_30_n2000_m200.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-c_1_n3000_m300.txt" 5 >> medida_MDG-c_1_n3000_m300.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-c_2_n3000_m300.txt" 5 >> medida_MDG-c_2_n3000_m300.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-c_8_n3000_m400.txt" 5 >> medida_MDG-c_8_n3000_m400.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-c_9_n3000_m400.txt" 5 >> medida_MDG-c_9_n3000_m400.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-c_10_n3000_m400.txt" 5 >> medida_MDG-c_10_n3000_m400.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-c_13_n3000_m500.txt" 5 >> medida_MDG-c_13_n3000_m500.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-c_14_n3000_m500.txt" 5 >> medida_MDG-c_14_n3000_m500.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-c_15_n3000_m500.txt" 5 >> medida_MDG-c_15_n3000_m500.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-c_19_n3000_m600.txt" 5 >> medida_MDG-c_19_n3000_m600.txt
+./prueba  "/mnt/c/Users/xaviv/Desktop/JAVIER/UNIVERSIDAD/CURSO 20.21/CURSO/2CUATRI/METAHEURISTICAS/PRACTICA2/datos/MDG-c_20_n3000_m600.txt" 5 >> medida_MDG-c_20_n3000_m600.txt
+

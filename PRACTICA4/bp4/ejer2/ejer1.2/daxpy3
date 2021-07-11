@@ -1,0 +1,317 @@
+	.file	"daxpy.c"
+	.text
+	.section	.rodata.str1.8,"aMS",@progbits,1
+	.align 8
+.LC0:
+	.string	"\nFalta el numero de elementos del primera_matriz"
+	.section	.rodata.str1.1,"aMS",@progbits,1
+.LC6:
+	.string	"\nDimension: %d"
+.LC7:
+	.string	"\ny[0]: %f"
+.LC8:
+	.string	"\ny[%d]: %f  "
+.LC9:
+	.string	"\nTiempo: %11.9f segundos\n\n"
+	.section	.text.startup,"ax",@progbits
+	.p2align 4,,15
+	.globl	main
+	.type	main, @function
+main:
+.LFB41:
+	.cfi_startproc
+	pushq	%r13
+	.cfi_def_cfa_offset 16
+	.cfi_offset 13, -16
+	pushq	%r12
+	.cfi_def_cfa_offset 24
+	.cfi_offset 12, -24
+	pushq	%rbp
+	.cfi_def_cfa_offset 32
+	.cfi_offset 6, -32
+	pushq	%rbx
+	.cfi_def_cfa_offset 40
+	.cfi_offset 3, -40
+	subq	$24, %rsp
+	.cfi_def_cfa_offset 64
+	cmpl	$3, %edi
+	jne	.L26
+	movq	16(%rsi), %rdi
+	movq	%rsi, %rbx
+	movl	$10, %edx
+	xorl	%esi, %esi
+	call	strtol@PLT
+	pxor	%xmm6, %xmm6
+	movq	8(%rbx), %rdi
+	xorl	%esi, %esi
+	movl	$10, %edx
+	cvtsi2sd	%eax, %xmm6
+	movsd	%xmm6, (%rsp)
+	call	strtol@PLT
+	movl	%eax, %ebx
+	movq	%rax, %r12
+	salq	$3, %rbx
+	movq	%rbx, %rdi
+	call	malloc@PLT
+	movq	%rbx, %rdi
+	movq	%rax, %r13
+	call	malloc@PLT
+	testl	%r12d, %r12d
+	movq	%rax, %rbp
+	je	.L3
+	movq	%r13, %rax
+	leal	-1(%r12), %ebx
+	shrq	$3, %rax
+	andl	$1, %eax
+	cmpl	$3, %ebx
+	jbe	.L15
+	testl	%eax, %eax
+	movl	$0, 8(%rsp)
+	je	.L5
+	movq	.LC2(%rip), %rsi
+	movq	$0x000000000, 0(%r13)
+	movl	$1, 8(%rsp)
+	movq	%rsi, 0(%rbp)
+.L5:
+	movd	8(%rsp), %xmm6
+	movl	%r12d, %edi
+	xorl	%edx, %edx
+	subl	%eax, %edi
+	movdqa	.LC4(%rip), %xmm4
+	pshufd	$0, %xmm6, %xmm1
+	salq	$3, %rax
+	movl	%edi, %esi
+	movdqa	.LC5(%rip), %xmm3
+	leaq	0(%r13,%rax), %rcx
+	shrl	$2, %esi
+	addq	%rbp, %rax
+	paddd	.LC3(%rip), %xmm1
+	.p2align 4,,10
+	.p2align 3
+.L6:
+	movdqa	%xmm1, %xmm0
+	addl	$1, %edx
+	addq	$32, %rcx
+	addq	$32, %rax
+	pslld	$2, %xmm0
+	cvtdq2pd	%xmm0, %xmm2
+	pshufd	$238, %xmm0, %xmm0
+	movaps	%xmm2, -32(%rcx)
+	cvtdq2pd	%xmm0, %xmm0
+	movaps	%xmm0, -16(%rcx)
+	movdqa	%xmm1, %xmm0
+	paddd	%xmm4, %xmm1
+	paddd	%xmm3, %xmm0
+	cvtdq2pd	%xmm0, %xmm2
+	pshufd	$238, %xmm0, %xmm0
+	movups	%xmm2, -32(%rax)
+	cvtdq2pd	%xmm0, %xmm0
+	movups	%xmm0, -16(%rax)
+	cmpl	%esi, %edx
+	jb	.L6
+	movl	%edi, %edx
+	movl	8(%rsp), %eax
+	andl	$-4, %edx
+	addl	%edx, %eax
+	cmpl	%edx, %edi
+	je	.L27
+.L4:
+	pxor	%xmm0, %xmm0
+	leal	0(,%rax,4), %edx
+	movslq	%eax, %rsi
+	leal	3(%rax), %ecx
+	cvtsi2sd	%edx, %xmm0
+	leal	1(%rax), %edx
+	cmpl	%edx, %r12d
+	movsd	%xmm0, 0(%r13,%rsi,8)
+	pxor	%xmm0, %xmm0
+	cvtsi2sd	%ecx, %xmm0
+	movsd	%xmm0, 0(%rbp,%rsi,8)
+	jbe	.L8
+	pxor	%xmm0, %xmm0
+	movslq	%edx, %rsi
+	sall	$2, %edx
+	cvtsi2sd	%edx, %xmm0
+	leal	4(%rax), %edx
+	movsd	%xmm0, 0(%r13,%rsi,8)
+	pxor	%xmm0, %xmm0
+	cvtsi2sd	%edx, %xmm0
+	leal	2(%rax), %edx
+	cmpl	%edx, %r12d
+	movsd	%xmm0, 0(%rbp,%rsi,8)
+	jbe	.L8
+	pxor	%xmm0, %xmm0
+	movslq	%edx, %rsi
+	sall	$2, %edx
+	cmpl	%ecx, %r12d
+	cvtsi2sd	%edx, %xmm0
+	leal	5(%rax), %edx
+	movsd	%xmm0, 0(%r13,%rsi,8)
+	pxor	%xmm0, %xmm0
+	cvtsi2sd	%edx, %xmm0
+	movsd	%xmm0, 0(%rbp,%rsi,8)
+	jbe	.L8
+	pxor	%xmm0, %xmm0
+	movslq	%ecx, %rdx
+	sall	$2, %ecx
+	addl	$6, %eax
+	cvtsi2sd	%ecx, %xmm0
+	movsd	%xmm0, 0(%r13,%rdx,8)
+	pxor	%xmm0, %xmm0
+	cvtsi2sd	%eax, %xmm0
+	movsd	%xmm0, 0(%rbp,%rdx,8)
+.L8:
+	call	omp_get_wtime@PLT
+	movq	%rbp, %rcx
+	movsd	%xmm0, 8(%rsp)
+	shrq	$3, %rcx
+	andl	$1, %ecx
+	cmpl	$1, %ebx
+	jbe	.L17
+.L14:
+	xorl	%esi, %esi
+	testl	%ecx, %ecx
+	je	.L10
+	movsd	(%rsp), %xmm0
+	movl	$1, %esi
+	mulsd	0(%r13), %xmm0
+	addsd	0(%rbp), %xmm0
+	movsd	%xmm0, 0(%rbp)
+.L10:
+	movsd	(%rsp), %xmm1
+	movl	%r12d, %r9d
+	xorl	%eax, %eax
+	subl	%ecx, %r9d
+	salq	$3, %rcx
+	xorl	%edx, %edx
+	unpcklpd	%xmm1, %xmm1
+	movl	%r9d, %r8d
+	leaq	0(%r13,%rcx), %rdi
+	shrl	%r8d
+	addq	%rbp, %rcx
+	.p2align 4,,10
+	.p2align 3
+.L11:
+	movupd	(%rdi,%rax), %xmm0
+	addl	$1, %edx
+	mulpd	%xmm1, %xmm0
+	addpd	(%rcx,%rax), %xmm0
+	movaps	%xmm0, (%rcx,%rax)
+	addq	$16, %rax
+	cmpl	%r8d, %edx
+	jb	.L11
+	movl	%r9d, %edx
+	andl	$-2, %edx
+	cmpl	%edx, %r9d
+	leal	(%rdx,%rsi), %eax
+	je	.L13
+.L9:
+	movslq	%eax, %rcx
+	movsd	(%rsp), %xmm5
+	movsd	0(%r13,%rcx,8), %xmm0
+	leaq	0(%rbp,%rcx,8), %rdx
+	addl	$1, %eax
+	mulsd	%xmm5, %xmm0
+	cmpl	%r12d, %eax
+	addsd	(%rdx), %xmm0
+	movsd	%xmm0, (%rdx)
+	jnb	.L13
+	cltq
+	mulsd	0(%r13,%rax,8), %xmm5
+	leaq	0(%rbp,%rax,8), %rdx
+	movsd	(%rdx), %xmm0
+	addsd	%xmm5, %xmm0
+	movsd	%xmm0, (%rdx)
+.L13:
+	call	omp_get_wtime@PLT
+	leaq	.LC6(%rip), %rsi
+	movl	%r12d, %edx
+	movl	$1, %edi
+	xorl	%eax, %eax
+	movsd	%xmm0, (%rsp)
+	call	__printf_chk@PLT
+	movsd	0(%rbp), %xmm0
+	leaq	.LC7(%rip), %rsi
+	movl	$1, %edi
+	movl	$1, %eax
+	call	__printf_chk@PLT
+	movl	%ebx, %eax
+	leaq	.LC8(%rip), %rsi
+	movl	%ebx, %edx
+	movsd	0(%rbp,%rax,8), %xmm0
+	movl	$1, %edi
+	movl	$1, %eax
+	call	__printf_chk@PLT
+	movsd	(%rsp), %xmm1
+	leaq	.LC9(%rip), %rsi
+	movl	$1, %edi
+	movl	$1, %eax
+	subsd	8(%rsp), %xmm1
+	movapd	%xmm1, %xmm0
+	call	__printf_chk@PLT
+	addq	$24, %rsp
+	.cfi_remember_state
+	.cfi_def_cfa_offset 40
+	xorl	%eax, %eax
+	popq	%rbx
+	.cfi_def_cfa_offset 32
+	popq	%rbp
+	.cfi_def_cfa_offset 24
+	popq	%r12
+	.cfi_def_cfa_offset 16
+	popq	%r13
+	.cfi_def_cfa_offset 8
+	ret
+.L27:
+	.cfi_restore_state
+	call	omp_get_wtime@PLT
+	movq	%rbp, %rcx
+	movsd	%xmm0, 8(%rsp)
+	shrq	$3, %rcx
+	andl	$1, %ecx
+	jmp	.L14
+.L3:
+	call	omp_get_wtime@PLT
+	orl	$-1, %ebx
+	movsd	%xmm0, 8(%rsp)
+	jmp	.L13
+.L15:
+	xorl	%eax, %eax
+	jmp	.L4
+.L17:
+	xorl	%eax, %eax
+	jmp	.L9
+.L26:
+	leaq	.LC0(%rip), %rdi
+	call	puts@PLT
+	orl	$-1, %edi
+	call	exit@PLT
+	.cfi_endproc
+.LFE41:
+	.size	main, .-main
+	.section	.rodata.cst8,"aM",@progbits,8
+	.align 8
+.LC2:
+	.long	0
+	.long	1074266112
+	.section	.rodata.cst16,"aM",@progbits,16
+	.align 16
+.LC3:
+	.long	0
+	.long	1
+	.long	2
+	.long	3
+	.align 16
+.LC4:
+	.long	4
+	.long	4
+	.long	4
+	.long	4
+	.align 16
+.LC5:
+	.long	3
+	.long	3
+	.long	3
+	.long	3
+	.ident	"GCC: (Ubuntu 7.5.0-3ubuntu1~18.04) 7.5.0"
+	.section	.note.GNU-stack,"",@progbits
